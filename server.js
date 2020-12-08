@@ -12,11 +12,11 @@ const image = require('./controllers/image');
 const db = knex({
   client: 'pg',
   connection: {
-    host : '127.0.0.1',
+    host : 'postgresql-curved-19160',
     user : 'postgres',
     password : 'yellow',
     database : 'smartbrain' 
-  }
+  } 
 });
 
 
@@ -24,7 +24,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get( '/' , (req, res) => {
+app.get( '/' , (req, res) => { 
 	res.send('It is working');
 });
 
