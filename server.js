@@ -9,18 +9,20 @@ const signin = require('./controllers/signin');
 const profileid = require('./controllers/profileid');
 const image = require('./controllers/image');
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
+
 const db = knex({
   client: 'pg',
   connection: {
     connectionString : process.env.DATABASE_URL,
-  	ssl: true,
+  	ssl : true,  
   } 
 });
 
 
 const app = express();
+app.use(cors())
 app.use(bodyParser.json());
-app.use(cors());
 
 app.get( '/' , (req, res) => { 
 	res.send('It is working');
